@@ -9,57 +9,39 @@
 
 <!-- This week doesn't have a script.js file in it, because you're focusing on HTML and CSS -->
 
-
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zhen Yu's Labs </title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <div class="selector">
-    <div class="header"><h1>Zhen Yu's Labs for INST377</h1> </div> 
-  </div>
-  <div class="container">
-    <div class="left_section box"> 
-        <h2> Album Names</h2>
-       
-        <ol class="box"> 
-            <li> Heroes & Villains </li>
-            <li> Different Man </li>
-            <li> Fallen Embers</li>
-            <li> One Night in Nashville </li>
-            <li> Strangers again</li>
-        </ol>
-       
-    </div>
-
-  <div class="right_section box">.
-    <h1> Image Carousel</h1>
-    <div class="carousel">
-        <button class="prev">prev</button>
-        <div class="slides"> 
-            <div class="carousel_item visible"> <img id="slide_1" src="images/picture/shiba1.jpeg" /> </div>
-            <div class="carousel_item hidden"> <img id="slide_2" src="images/picture/shiba2.jpeg" /> </div>
-            <div class="carousel_item hidden"> <img id="slide_3" src="images/picture/shiba3.jpeg" /> </div>
-            <div class="carousel_item hidden"> <img id="slide_4" src="images/picture/shiba4.jpeg" /> </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zhen Yu's Labs for INST377</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header h1">
+        <h1>Zhen Yu's INST377 Labs</h1>
+      </header>
+      <div class="container">
+        <div class="left_section box">
+          <h3>Form Inputs </h3>
+          <ol class="box"> 
+            <h4>Restaurant Name</h4>
+          <form action="https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json">
+            <label for="resto"></label>
+            <input type="text" name="resto" id="resto" />
+            <button type="submit">submit</button>
+          </form>
+          </ol>
         </div>
-        <button class="next">next</button>
-        
-    </div> 
-      <div class="box"> Pictures of a Shiba Inu out in the wild 
-      </div> 
+        <div class="right_section box">
+          <h3>Local Resturants</h3>
+          <div class="restaurant_list box">A list of local resturants</div>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-</div>
-
     <footer class="footer">
-        <p> YOUR GITHUB ACCOUNT AACOUNT NAME <a href="https://github.com/zhenyu033"> MY GITHUB ACCOUNT</a></p>
+      <p> YOUR GITHUB ACCOUNT NAME <a href="https://github.com/zhenyu033"> MY GITHUB ACCOUNT</a></p>
     </footer>
-<script src="script.js" > </script>
-</body>
+  </body>
 </html>
