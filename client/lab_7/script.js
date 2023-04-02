@@ -7,7 +7,7 @@ function getRandomIntInclusive(min,max) {
   function injectHTML(list){
     console.log("fired injectHTML");
     const target = document.querySelector("restaurant_list");
-    target.innerHTML = " ";
+    target.innerHTML = "";
     list.forEach((item) => {
       const str = "<li>${item.name}</li>"
       target.innerHTML += str
@@ -16,7 +16,7 @@ function getRandomIntInclusive(min,max) {
   }
   
   
-  function processRestaurants(list) {
+  function processRestaurantsList(list) {
     console.log('fired restaurants list');
     const range =[...Array(15).keys()];
     return newArray = range.map((item) => {
@@ -39,20 +39,27 @@ function getRandomIntInclusive(min,max) {
     const filterButton = document.querySelector("#filter_button");
     const loadDataButton = document.querySelector("#data_load");
     const generateListButton = document.querySelector("#generate");
+    const textFeild = document.querySelector("#resto")
   
     const loadAnimation = document.querySelector("#data_load_animation");
     loadAnimation.style.display ="none";
-    
+    generateListButton.classList.add("hidden");
+
+    let storedList = []; 
     let currentList = [];
+    
     loadDataButton.addEventListener("click", async(submitEvent) => {
       console.log("loading data");
       loadAnimation.style.display = "inline-block";
   
       const results = await fetch("https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json");
       
-      currentList = await results.json();
+      storedList = await results.json();
+      if (storedList.length >0) {
+        generateListButton.classList.remove("hidden");
+      }
       loadAnimation.style.display = "none";
-      console.table(currentList);
+      console.table(storedList);
     });
     
     filterButton.addEventListener("click", (event) => {
@@ -69,12 +76,23 @@ function getRandomIntInclusive(min,max) {
    
     generateListButton.addEventListener("click", (event) => {
       console.log("generate new list");
-      const resturantList = cutRestaurantList(currentList);
-      injectHTML(resturantList);
+      currentList = processRestaurantsList(storedList);
+      console.log(currentList);
+      injectHTML(currentList);
   
     })
-  } 
   
+  
+    textFeild.addEventListener("input", (event) => {
+      console.log("input", event.target.value);
+      const newList = filerList(currentList, event.target.value);
+      console.log(newList);
+      injectHTML(newlist);
     
+    });
+  }
+  
+  
+
   document.addEventListener('DOMContentLoaded', async () => mainEvent()); // the async keyword means we can make API requests
   
